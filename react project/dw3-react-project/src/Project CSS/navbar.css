@@ -1,0 +1,49 @@
+.navbar {
+    background-color: #34495e;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .navbar-link {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-link:hover {
+    color: #ffd700;
+  }
+ 
+
+
+  
+/* Apply styles to all elements with the .navbar-link class */
+/* .navbar-link {
+  width: 85%;
+  margin: auto;
+  padding: 35px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Add any other styles specific to your NavLink */
+/* } */
+
+/* 
+.navbar .navbar-link {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+} */
+
+
+
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,144 @@
+/* CSS for Form Container */
+.form-container {
+    max-width: 400px;
+    margin: 45px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+  }
+  
+  /* CSS for Form Title */
+  .form-title {
+    text-align: center;
+    margin: 0 0 20px;
+  }
+  
+  /* CSS for Form Input Fields */
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* CSS for Form Select Field */
+  .form-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* CSS for Submit Button */
+  .form-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  /* CSS for Error Messages */
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* CSS for spacing between form elements */
+  .form-element-spacing {
+    margin-top: 15px;
+  }
+  
+  /* CSS for additional padding and finishing touch */
+  .form-container {
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .form-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .form-input,
+  .form-select {
+    padding: 12px;
+  }
+  
+  .form-button {
+    padding: 12px 20px;
+  }
+  
+  body {
+    background-color: #f3f6ff; /* Light-colored background */
+  }
+  .forgot-password {
+    color: blue; /* Change the color to your preferred color */
+    margin-bottom: 10px; /* Add spacing between the "Forgot Password?" section and the login button */
+  }
+
+  .profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .profile-section {
+    margin-bottom: 20px;
+  }
+  
+  .profile-label {
+    font-weight: bold;
+  }
+  
+  .profile-info {
+    margin-top: 5px;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .profile-button {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  body {
+    background-color: #f3f6ff; /* Light-colored background */
+  }
+  /* Add this CSS in your createAccount.css file or create a new CSS file */
+.uploaded-image {
+  display: block;
+  max-width: 300px;
+  max-height: 300px;
+  margin-top: 10px;
+}

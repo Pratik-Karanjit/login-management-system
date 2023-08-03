@@ -1,0 +1,19 @@
+.registration-success-container {
+    max-width: 400px;
+    margin: 100px auto; /* Adjust the margin-top value as needed */
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .registration-success-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .registration-success-message {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
