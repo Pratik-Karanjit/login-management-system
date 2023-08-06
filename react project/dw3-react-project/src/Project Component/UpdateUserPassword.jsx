@@ -25,7 +25,7 @@ const UpdateUserPassword = () => {
       const token = urlParams.get('token');       //The token is retrieved using urlParams.get('token').
   
       // Include the token as a query parameter in the request URL
-      const response = await axios.patch(`http://localhost:8000/users/check-password?token=${getLoginInfo()?.token}`, values);
+      const response = await axios.patch(`http://localhost:8000/users/update-password?token=${getLoginInfo()?.token}`, values);
     //   console.log(response.data);
       navigate('/login');
     } catch (error) {

@@ -239,12 +239,7 @@ export let checkPassword = expressAsyncHandler(async (req, res, next) => {
 
   await Token.findByIdAndDelete(tokenId);
   successResponse(res, HttpStatus.OK, "updated password successfully", result);
-
   }
-
-
-
-
 });
 
 

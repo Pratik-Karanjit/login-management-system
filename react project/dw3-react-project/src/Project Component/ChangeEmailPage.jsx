@@ -17,7 +17,7 @@ const ChangeEmailPage = () => {
     try {
       const response = await axios.patch(`http://localhost:8000/users/change-email-page?token=${getLoginInfo()?.token}`, values);
 
-      console.log(response.data);
+      // console.log(response.data);
       navigate('/login');
     } catch (error) {
       console.log('Unable to submit:', error);
