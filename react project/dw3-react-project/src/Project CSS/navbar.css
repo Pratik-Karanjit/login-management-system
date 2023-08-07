@@ -1,12 +1,12 @@
 .navbar {
-    background-color: #34495e;
+    background-color: #0E0704;
     display: flex;
     justify-content: center;
     padding: 10px;
   }
   
   .navbar-link {
-    margin: 0 10px;
+    margin: 0 20px;
     color: #fff;
     text-decoration: none;
     font-size: 16px;
@@ -15,29 +15,32 @@
   }
   
   .navbar-link:hover {
-    color: #ffd700;
+    color: blue;
   }
- 
-
 
   
-/* Apply styles to all elements with the .navbar-link class */
-/* .navbar-link {
-  width: 85%;
-  margin: auto;
-  padding: 35px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* Add any other styles specific to your NavLink */
-/* } */
 
-/* 
-.navbar .navbar-link {
-  list-style: none;
-  display: inline-block;
-  margin: 0 20px;
-} */
+
+/* To make the site responsive */
+
+
+  @media screen and (max-width: 768px) { 
+     /* This is the media query declaration. It specifies that the  */
+    /* enclosed CSS rules should only apply when the screen width is 768 pixels or less. */
+    .navbar {
+      flex-direction: column;
+       /* // it makes the navigation links stack on top of each other vertically rather than appearing */
+        /* side by side horizontally. */
+      align-items: center;
+    }
+  
+    .navbar-link {
+      margin: 10px 0;
+      font-size: 14px;
+    }
+  }
+  
+
 
 
 
