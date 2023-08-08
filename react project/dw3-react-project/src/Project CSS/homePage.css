@@ -1,13 +1,26 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+
+.cards{
+   display: flex;
+   gap: 10rem;
+   justify-content: center;
+   margin-top: 8rem;
 }
-.banner{
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.75),
-    rgba(0,0,0,0.76)),url(background.jpg);
-    background-size: cover;
-    background-position: center;
+
+.semi-cards{
+    background-color: burlywood;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    height: 30vh;
+    width: 30vh;
+    border: 1px solid #ededed;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Added border-color transition */
+}
+
+.semi-cards:hover {
+    background-color: white;
+    border-color: red; /* Change border color on hover (for illustration purposes) */
 }
