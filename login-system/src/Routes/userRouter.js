@@ -57,10 +57,6 @@ userRouter.route("/delete").delete(isAuthenticatedForEmail, isAuthorized(["super
 
 
 
-userRouter
-  .route("/:id")
-  .get(readUserDetails)
-  .patch(updateUser)
-  // .delete(isAuthenticated,isAuthorized,deleteUser);
+userRouter.route("/:id").get(readUserDetails).patch(updateUser)// .delete(isAuthenticated,isAuthorized,deleteUser);
 
 export default userRouter;

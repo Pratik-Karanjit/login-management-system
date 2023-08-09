@@ -24,3 +24,9 @@
     background-color: white;
     border-color: red; /* Change border color on hover (for illustration purposes) */
 }
+
+.photo{
+    height: 30h;
+    width: 30vh;
+    cursor: pointer;
+}
