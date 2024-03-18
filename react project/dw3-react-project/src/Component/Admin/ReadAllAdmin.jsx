@@ -1,46 +1,43 @@
-import React, { useEffect, useState } from 'react'
-import { baseUrl } from '../../config/config';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { getLoginInfo } from '../../utils/loginInfo';
+import React, { useEffect, useState } from "react";
+import { baseUrl } from "../../config/config";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { getLoginInfo } from "../../utils/loginInfo";
 // import { getLoginInfo } from '../../Utils/LogInInfo';
 const ReadAllAdmin = () => {
   let [data, setData] = useState([]);
   let [page, setPage] = useState(1);
-  let [pageInformation, setPageInformation] = useState({})
+  let [pageInformation, setPageInformation] = useState({});
   let [isLoading, setIsLoading] = useState(true);
   let [iserror, setIsError] = useState("");
   let navigate = useNavigate();
   let readAllData = async () => {
-    
     try {
       let result = await axios({
         url: `${baseUrl}/admin?_page=${page}`,
         method: "get",
         headers: {
-          Authorization: `Bearer ${getLoginInfo().token}`
-        }
-        
+          Authorization: `Bearer ${getLoginInfo().token}`,
+        },
       });
-      setPageInformation(result.data.data)
+      setPageInformation(result.data.data);
       setIsLoading(false);
       setIsError("");
       setData(result.data.data.results);
 
-      console.log(result)
+      console.log(result);
       // console.log('ksdjflskfdj')
     } catch (error) {
       // console.log(
       //   "******", error.response.status
       // )
 
-      console.log('asdkfjsdklfj')
+      console.log("asdkfjsdklfj");
       setIsLoading(false);
       setIsError("unable to fetch data");
       console.log("error has Occured");
-      navigate("/admin/login")
+      navigate("/admin/login");
     }
-
   };
   let deleteContact = async (id) => {
     let obj = {
@@ -63,16 +60,19 @@ const ReadAllAdmin = () => {
       await axios(obj);
       readAllData();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    
+
     // console.log("deleted");
   };
 
-
   return (
     <div>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && (
+        <p>
+          <h1>Loading...</h1>
+        </p>
+      )}
       {iserror && <p>Error occured</p>}
       {data.map((item, i) => {
         return (
@@ -85,7 +85,7 @@ const ReadAllAdmin = () => {
             <p>Middle Name : {item.middleName}</p>
             <p>Email : {item.email}</p>
             <p>Role : {item.role}</p>
-            <p>Date Of Birth : {new Date(item.dob).toLocaleDateString()    }</p>
+            <p>Date Of Birth : {new Date(item.dob).toLocaleDateString()}</p>
             <p>Phone Number : {item.phoneNumber}</p>
             <p>Gender : {item.gender}</p>
             {/* <button
@@ -113,36 +113,34 @@ const ReadAllAdmin = () => {
               Delete
             </button>
           </div>
-        )
+        );
       })}
-
-
-    <button
-      onClick={() => {
-       if (page <= 1) {
-        setPage(1)
-       }else{
-        setPage(page - 1)
-       }
-      }}
-       disabled = {!pageInformation.hasPreviousPage}
-    >Pre</button>
-
+      <button
+        onClick={() => {
+          if (page <= 1) {
+            setPage(1);
+          } else {
+            setPage(page - 1);
+          }
+        }}
+        disabled={!pageInformation.hasPreviousPage}
+      >
+        Pre
+      </button>
       {pageInformation.currentPage} of {pageInformation.totalPage}
-
-    <button
-    onClick={() => {
-      if (page === pageInformation.totalPage){
-        setPage(pageInformation.totalPage)
-      }else{
-        setPage(page + 1)
-      }
-    }}
-    disabled = {!pageInformation.hasNextPage}
-    >
-      Next
-    </button>
+      <button
+        onClick={() => {
+          if (page === pageInformation.totalPage) {
+            setPage(pageInformation.totalPage);
+          } else {
+            setPage(page + 1);
+          }
+        }}
+        disabled={!pageInformation.hasNextPage}
+      >
+        Next
+      </button>
     </div>
-  )
-}
-export default ReadAllAdmin
+  );
+};
+export default ReadAllAdmin;

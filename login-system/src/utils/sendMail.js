@@ -34,39 +34,3 @@ export let sendMail = async (mailInfo) => {
     console.log("error has occurred", error.message);
   }
 };
-
-// the from part is responsible  to show
-//to sendMail just call
-// try {
-//   await sendMail({
-//     from: '"Fred Foo" <nitanthapa425@gmail.com>',
-//     to: ["nitanthapa123@gmail.com", "sandeshbca5@arunima.edu.np"],
-//     cc: ["ram@gmail.com"],
-//     bcc: ["hari@gmail.com"],
-////bcc is blind carbon copy
-//     attachments: [
-//   {
-//     filename: 'example.pdf', // Replace with your desired filename
-//     path: '/path/to/example.pdf' // Replace with the actual file path on your server
-//   }
-// ]
-//     subject: "this is subject",
-//     html: `<h1>Hello World<h1>`,
-//   });
-//   console.log("email is sent successfully");
-// } catch (error) {}
-
-//below is good approach
-
-// note from : is only  use to show the from information (ie not used to point the sender email sender email is point to the auth part)
-
-// await sendMail({
-//   from:'"Fred Foo" <nitanthapa425@gmail.com>'
-//       to: [
-//         "nitanthapa425@gmail.com",
-//         "adhikariluffy20@gmail.com",
-//         "hipakdev@gmail.com",
-//       ],
-//       subject: "this is subject",
-//       html: `<h1>Hello World<h1>`,
-//     });

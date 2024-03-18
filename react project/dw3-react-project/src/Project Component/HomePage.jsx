@@ -1,25 +1,13 @@
-import React from 'react'
-import '../Project CSS/homePage.css';
-import meImage from '../Project CSS/me.jpg'
+import React from "react";
+import "../Project CSS/homePage.css";
 
 const HomePage = () => {
   return (
-   
-        <div className='cards'>
-          <div className='semi-cards'> 
-          <h1>Hello</h1>   
-          </div>
-          <div className='semi-cards'>   
-          <h1>Hello</h1>   
-          </div>
-          <div className='semi-cards'> 
-          <h1>Hello</h1>   
-          </div>
-          {/* <div>
-          <img src = {meImage} className='photo' alt='me'></img>
-          </div> */}
+    <div>
+      <h1>Welcome to home page. </h1>
+      <h2>Try out different functionalities mentioned in the nav!</h2>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

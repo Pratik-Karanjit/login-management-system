@@ -55,8 +55,6 @@ userRouter.route("/deactivate").patch(isAuthenticatedForEmail, deactivate);
 
 userRouter.route("/delete").delete(isAuthenticatedForEmail, isAuthorized(["superAdmin"]), deleteUser);
 
-
-
 userRouter.route("/:id").get(readUserDetails).patch(updateUser)// .delete(isAuthenticated,isAuthorized,deleteUser);
 
 export default userRouter;

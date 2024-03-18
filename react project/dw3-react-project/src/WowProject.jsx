@@ -1,6 +1,5 @@
 import React from 'react'
 import NavBar from './Project Component/NavBar'
-import Footer from './Project Component/Footer'
 import { Outlet, Route, Routes } from 'react-router-dom'
 import CreateAccount from './Project Component/CreateAccount'
 import CreateLogin from './Project Component/CreateLogin'

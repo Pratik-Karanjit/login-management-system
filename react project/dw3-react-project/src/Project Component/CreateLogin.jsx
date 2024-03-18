@@ -77,61 +77,61 @@
 
 // export default CreateLogin;
 
-
-
-import { Formik, Form } from 'formik';
-import * as yup from 'yup';
-import React, { useState } from 'react';
-import FormikInput from '../Formik/FormikInput';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import Swal from 'sweetalert2';
-import { setLoginInfo } from '../utils/loginInfo';
+import { Formik, Form } from "formik";
+import * as yup from "yup";
+import React, { useState } from "react";
+import FormikInput from "../Formik/FormikInput";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { setLoginInfo } from "../utils/loginInfo";
 
 const CreateLogin = () => {
   const navigate = useNavigate();
   const [loginError, setLoginError] = useState(false);
 
   const initialValues = {
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   };
-
 
   // setSubmitting(true) is used at the start of the onSubmit function to let the form know that you're
   //  starting the submission process.
   const onSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.post('http://localhost:8000/users/login', values);
+      const response = await axios.post(
+        "http://localhost:8000/users/login",
+        values
+      );
       const token = response.data.token;
-      setLoginInfo({token})
+      setLoginInfo({ token });
       // console.log(response.data);
-      navigate('/');
+      navigate("/");
     } catch (error) {
-      console.log('Unable to submit:', error);
-      setLoginError(true);            //If it catches error the error state is set to true
+      console.log("Unable to submit:", error);
+      setLoginError(true); //If it catches error the error state is set to true
     } finally {
-      setSubmitting(false);           //its set to false inside finally to reset the form for another user
+      setSubmitting(false); //its set to false inside finally to reset the form for another user
     }
   };
 
   const validationSchema = yup.object({
-    email: yup.string().required('Email is required. '),
-    password: yup.string().required('Password is required. '),
+    email: yup.string().required("Email is required. "),
+    password: yup.string().required("Password is required. "),
   });
 
   const handleDeleteAlert = () => {
     Swal.fire({
-      title: 'Login Error',
-      text: 'Incorrect email or password.',
-      icon: 'error',
-      confirmButtonText: 'OK',
+      title: "Login Error",
+      text: "Incorrect email or password.",
+      icon: "error",
+      confirmButtonText: "OK",
     });
   };
 
   const handleForgotPassword = () => {
     // Handle the logic for the "Forgot Password?" action
-    navigate('/forgot-password');
+    navigate("/forgot-password");
   };
 
   return (
@@ -142,7 +142,7 @@ const CreateLogin = () => {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        {formik => (
+        {(formik) => (
           <Form>
             <FormikInput
               name="email"
@@ -159,9 +159,15 @@ const CreateLogin = () => {
               className="form-input"
             />
             <div className="forgot-password">
-              <a href="#" onClick={handleForgotPassword}>Forgot Password?</a>
+              <a href="#" onClick={handleForgotPassword}>
+                Forgot Password?
+              </a>
             </div>
-            <button type="submit" disabled={formik.isSubmitting} className="form-button">
+            <button
+              type="submit"
+              disabled={formik.isSubmitting}
+              className="form-button"
+            >
               Login
             </button>
           </Form>
@@ -174,5 +180,3 @@ const CreateLogin = () => {
 };
 
 export default CreateLogin;
-
-

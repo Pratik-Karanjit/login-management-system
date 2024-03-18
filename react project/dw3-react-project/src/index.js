@@ -13,8 +13,6 @@ ReactDOM.render(
     {/* <Project /> */}
 
     <WowProject></WowProject>
-    
-
   </BrowserRouter>,
   document.getElementById("root")
 );

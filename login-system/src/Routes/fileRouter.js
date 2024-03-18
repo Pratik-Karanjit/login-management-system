@@ -7,7 +7,7 @@ let fileRouter = Router();
 
 //localhost:8000/files/single
 fileRouter.route("/single").post(upload.single("img"), (req, res, next) => {
-  //   console.log(req.file);
+  console.log(req.file);
   let link = `localhost:8000/${req.file.filename}`;
   successResponse(res, HttpStatus.OK, "file Uploaded successfully", link);
 });
