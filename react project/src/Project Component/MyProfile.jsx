@@ -17,7 +17,7 @@ const MyProfile = () => {
   let readData = async () => {
     try {
       let response = await axios({
-        url: "http://localhost:8000/users/my-profile",
+        url: "https://login-management-system.onrender.com/users/my-profile",
         method: "get",
         headers: {
           Authorization: `Bearer ${getLoginInfo()?.token}`,
@@ -32,7 +32,7 @@ const MyProfile = () => {
       setDateOfBirth(new Date(dob).toLocaleDateString());
       setProfileImage(profileImage);
       setRole(role);
-      setEmail(email)
+      setEmail(email);
     } catch (error) {
       console.log(error);
       navigate("/login");
@@ -61,17 +61,17 @@ const MyProfile = () => {
       <div className="profile-section">
         <label className="profile-label">Email:</label>
         <p className="profile-info">{email}</p>
-        <button onClick={(e) => {
-                navigate("/change-email")
-        }}>Change Email</button>
+        <button
+          onClick={(e) => {
+            navigate("/change-email");
+          }}
+        >
+          Change Email
+        </button>
       </div>
       <div className="profile-section">
         <label className="profile-label">Profile Image:</label>
-        <img
-          className="profile-image"
-          src={profileImage}
-          alt="Profile"
-        />
+        <img className="profile-image" src={profileImage} alt="Profile" />
       </div>
       <div className="profile-section">
         <label className="profile-label">Role:</label>

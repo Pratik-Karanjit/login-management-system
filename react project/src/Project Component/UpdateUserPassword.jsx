@@ -1,51 +1,61 @@
-import { Formik, Form } from 'formik';
-import * as yup from 'yup';
-import React from 'react';
-import FormikInput from '../Formik/FormikInput';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { getLoginInfo } from '../utils/loginInfo';
+import { Formik, Form } from "formik";
+import * as yup from "yup";
+import React from "react";
+import FormikInput from "../Formik/FormikInput";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { getLoginInfo } from "../utils/loginInfo";
 
 const UpdateUserPassword = () => {
   const navigate = useNavigate();
 
   const initialValues = {
-    CurrentPassword: '',
-    NewPassword: '',
-    password: '',
+    CurrentPassword: "",
+    NewPassword: "",
+    password: "",
   };
-  
 
   const onSubmit = async (values) => {
     try {
-    //   console.log("button clicked....");
-  
+      //   console.log("button clicked....");
+
       // Get the token from the query parameters in the URL
       const urlParams = new URLSearchParams(window.location.search); // the URLSearchParams API is used to extract the token parameter from the query string of the current URL.
-      const token = urlParams.get('token');       //The token is retrieved using urlParams.get('token').
-  
+      const token = urlParams.get("token"); //The token is retrieved using urlParams.get('token').
+
       // Include the token as a query parameter in the request URL
-      const response = await axios.patch(`http://localhost:8000/users/update-password?token=${getLoginInfo()?.token}`, values);
-    //   console.log(response.data);
-      navigate('/login');
+      const response = await axios.patch(
+        `https://login-management-system.onrender.com/users/update-password?token=${
+          getLoginInfo()?.token
+        }`,
+        values
+      );
+      //   console.log(response.data);
+      navigate("/login");
     } catch (error) {
-      console.log('Unable to submit:', error);
-    } 
+      console.log("Unable to submit:", error);
+    }
   };
-  
 
   const validationSchema = yup.object({
-    CurrentPassword: yup.string().required('Current Password is required to change password.'),
+    CurrentPassword: yup
+      .string()
+      .required("Current Password is required to change password."),
     NewPassword: yup
       .string()
-      .required('New Password is required.')
-      .notOneOf([yup.ref('CurrentPassword')], 'New Password must be different from the Current Password.'),
+      .required("New Password is required.")
+      .notOneOf(
+        [yup.ref("CurrentPassword")],
+        "New Password must be different from the Current Password."
+      ),
     password: yup
       .string()
-      .required('Confirm Password is required.')
-      .oneOf([yup.ref('NewPassword')], 'Your new password and confirm password must match.')
+      .required("Confirm Password is required.")
+      .oneOf(
+        [yup.ref("NewPassword")],
+        "Your new password and confirm password must match."
+      ),
   });
-  
 
   return (
     <div className="form-container">
@@ -55,17 +65,15 @@ const UpdateUserPassword = () => {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        {formik => (
+        {(formik) => (
           <Form>
-
             <FormikInput
               name="CurrentPassword"
               label="Current Password:"
               type="password"
               required={true}
               className="form-input"
-            />      
-
+            />
 
             <FormikInput
               name="NewPassword"

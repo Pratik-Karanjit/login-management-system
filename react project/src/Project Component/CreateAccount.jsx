@@ -25,7 +25,7 @@ const CreateAccount = () => {
   //     formData.append('img', file);
 
   //     // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint URL to upload the image
-  //     const response = await axios.post('http://localhost:8000/files/single', formData, {
+  //     const response = await axios.post('https://login-management-system.onrender.com/files/single', formData, {
   //       headers: {
   //         'Content-Type': 'multipart/form-data',
   //       },
@@ -44,7 +44,7 @@ const CreateAccount = () => {
   let onSubmit = async (info) => {
     try {
       let result = await axios({
-        url: `http://localhost:8000/users`,
+        url: `https://login-management-system.onrender.com/users`,
         method: "post",
         data: info,
       });

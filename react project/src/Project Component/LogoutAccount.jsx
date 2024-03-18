@@ -9,7 +9,7 @@ const LogoutAccount = () => {
   let logoutAdmin = async () => {
     try {
       await axios({
-        url: `http://localhost:8000/users/logout?token=${
+        url: `https://login-management-system.onrender.com/users/logout?token=${
           getLoginInfo()?.token
         }`, //sent login token in url itself so that backend's isAuthenticatedForEmail middleware can get the token from query
         method: "delete",
