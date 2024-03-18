@@ -23,57 +23,88 @@ import HomePage from "./Project Component/HomePage";
 const WowProject = () => {
   return (
     <div>
-      <NavBar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="create" element={<CreateAccount />} />
-        <Route path="verify" element={<VerifyEmail />} />
-        <Route path="verify-email" element={<VerifyEmailPage />} />
-        <Route path="login" element={<CreateLogin></CreateLogin>}></Route>
         <Route
-          path="forgot-password"
-          element={<ForgotPassword></ForgotPassword>}
-        ></Route>
-        <Route
-          path="forgot-password-verification"
-          element={<ForgotPassVerification></ForgotPassVerification>}
-        ></Route>
-        <Route path="logout" element={<LogoutAccount></LogoutAccount>}></Route>
-        <Route path="delete" element={<DeleteAccount></DeleteAccount>}></Route>
-        <Route path="my-profile" element={<MyProfile></MyProfile>}></Route>
-        <Route
-          path="update-my-profile"
-          element={<UpdateProfile></UpdateProfile>}
-        ></Route>
-        <Route
-          path="deactivate"
-          element={<DeactivateAccount></DeactivateAccount>}
-        ></Route>
-        <Route
-          path="security"
-          element={<UpdateUserPassword></UpdateUserPassword>}
-        ></Route>
-        <Route
-          path="change-email"
-          element={<ChangeEmail></ChangeEmail>}
-        ></Route>
-        <Route
-          path="change-email-verification"
-          element={<ChangeEmailVerification></ChangeEmailVerification>}
-        ></Route>
-        <Route
-          path="change-email-page"
-          element={<ChangeEmailPage></ChangeEmailPage>}
-        ></Route>
-        <Route
-          path="registration-success"
-          element={<RegistrationSuccessPage></RegistrationSuccessPage>}
-        />
-        <Route
-          path="forgot-password-reset"
-          element={<ForgotPasswordReset></ForgotPasswordReset>}
-          querystring
-        />
+          path="https://login-management-system.onrender.com"
+          element={
+            <div>
+              <NavBar></NavBar>
+              <Outlet></Outlet>
+            </div>
+          }
+        >
+          <Route index element={<HomePage></HomePage>}></Route>
+
+          {/* <Route path ="hello" element = {<div><Outlet></Outlet></div>}>
+                <Route index element = {<div>hello page</div>}></Route>
+              <Route path = ":id" element = {<div>Hello and more</div>}></Route> */}
+
+          <Route
+            path="create"
+            element={<CreateAccount></CreateAccount>}
+          ></Route>
+          <Route path="verify" element={<VerifyEmail></VerifyEmail>}></Route>
+          <Route path="login" element={<CreateLogin></CreateLogin>}></Route>
+          <Route
+            path="forgot-password"
+            element={<ForgotPassword></ForgotPassword>}
+          ></Route>
+          <Route
+            path="forgot-password-verification"
+            element={<ForgotPassVerification></ForgotPassVerification>}
+          ></Route>
+          <Route
+            path="logout"
+            element={<LogoutAccount></LogoutAccount>}
+          ></Route>
+          <Route
+            path="delete"
+            element={<DeleteAccount></DeleteAccount>}
+          ></Route>
+          <Route path="my-profile" element={<MyProfile></MyProfile>}></Route>
+          <Route
+            path="update-my-profile"
+            element={<UpdateProfile></UpdateProfile>}
+          ></Route>
+          <Route
+            path="deactivate"
+            element={<DeactivateAccount></DeactivateAccount>}
+          ></Route>
+          <Route
+            path="security"
+            element={<UpdateUserPassword></UpdateUserPassword>}
+          ></Route>
+          <Route
+            path="change-email"
+            element={<ChangeEmail></ChangeEmail>}
+          ></Route>
+          <Route
+            path="change-email-verification"
+            element={<ChangeEmailVerification></ChangeEmailVerification>}
+          ></Route>
+          <Route
+            path="change-email-page"
+            element={<ChangeEmailPage></ChangeEmailPage>}
+          ></Route>
+
+          {/* Add the route for the verify-email token */}
+          <Route
+            path="registration-success"
+            element={<RegistrationSuccessPage></RegistrationSuccessPage>}
+          />
+          <Route
+            path="verify-email"
+            element={<VerifyEmailPage />}
+            querystring
+          />
+          <Route
+            path="forgot-password-reset"
+            element={<ForgotPasswordReset></ForgotPasswordReset>}
+            querystring
+          />
+        </Route>
+
+        {/* </Route> */}
       </Routes>
     </div>
   );
