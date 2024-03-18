@@ -1,0 +1,11 @@
+[build]
+  base = "dw3-react-project"
+  command = "CI=false npm run build"
+  commandOrigin = "config"
+
+[environment]
+  DEPRECATED = true
+
+[publish]
+  directory = "/"
+  publishOrigin = "config"
