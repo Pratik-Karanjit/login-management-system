@@ -36,7 +36,7 @@ export let createUser = expressAsyncHandler(async (req, res, next) => {
     };
     let token = await generateToken(infoObj, expireInfo); //Calling the generate token function
     await Token.create({ token });
-    let link = `https://login-management-system.onrender.com/verify-email?token=${token}`; //Giving link and sending it to email for email verification
+    let link = `https://loginmanagement.netlify.app/verify-email?token=${token}`; //Giving link and sending it to email for email verification
     await sendMail({
       from: '"Pratik Karanjit" <uniquekc425@gmail.com>', //This is the text that is shown in (sent by)
       to: [data.email],
