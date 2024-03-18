@@ -1,5 +1,5 @@
 [build]
-  base = "dw3-react-project"
+  base = "react-project"
   command = "CI=false npm run build"
   commandOrigin = "config"
 
