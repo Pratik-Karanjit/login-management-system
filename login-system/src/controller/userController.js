@@ -59,7 +59,7 @@ export let createUser = expressAsyncHandler(async (req, res, next) => {
 //localhost:8000/users/verify-email?token=1234234
 export let verifyEmail = expressAsyncHandler(async (req, res, next) => {
   let id = req.info.id; //getting id from query and setting it in a variable
-  // console.log(id)
+  console.log("id of verify email", id);
   let tokenId = req.token.tokenId; //sent token inside isAuthenticated and received tokenId through it
   // console.log(tokenId)
   let result = await User.findByIdAndUpdate(
