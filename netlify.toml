@@ -1,6 +1,6 @@
 [build]
-  base = "/"
-  command = "CI=false npm run build"
+  base = "react project"
+  command = "npm run build"
   commandOrigin = "config"
 
 [environment]
