@@ -9,3 +9,8 @@
 [publish]
   directory = "/"
   publishOrigin = "config"
+
+[[redirects]]
+from = "/*"
+to = "index.js"
+status = 200
