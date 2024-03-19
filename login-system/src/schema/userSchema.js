@@ -5,7 +5,7 @@ export let userSchema = Schema({
     type: String,
     trim: true,
     required: [true, "fName field is required"],
-    minLength: [4, "fname must be at least 4 character long"],
+    minLength: [1, "fname must be at least 4 character long"],
     maxLength: [20, "fname must be at most 20 character"],
 
     validate: (value) => {
@@ -18,7 +18,7 @@ export let userSchema = Schema({
     type: String,
     trim: true,
     required: [true, "lName field is required"],
-    minLength: [4, "lname must be at least 4 character long"],
+    minLength: [1, "lname must be at least 4 character long"],
     maxLength: [20, "lname must be at most 20 character"],
 
     validate: (value) => {
@@ -60,14 +60,14 @@ export let userSchema = Schema({
   role: {
     type: String,
     enum: {
-      values: ["admin", "customer","superAdmin"],
+      values: ["admin", "customer", "superAdmin"],
       default: "customer",
       message: (notEnum) => {
         return `${notEnum.value} is not valid enum`;
       },
     },
   },
-  
+
   isVerify: {
     type: Boolean,
     default: false,
