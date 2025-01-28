@@ -15,7 +15,7 @@ export let createUser = expressAsyncHandler(async (req, res, next) => {
   let email = data.email; //getting email and storing in variable
   // let user = await User.findOne({ email: email }); //Checking if the email is in DB
 
-  if (user) {
+  if (data) {
     console.log("hello")
     //If it is then show duplicate email error
     // let error = new Error("Duplicate email.");
