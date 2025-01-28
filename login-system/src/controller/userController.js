@@ -15,6 +15,16 @@ export let createUser = expressAsyncHandler(async (req, res, next) => {
   let email = data.email; //getting email and storing in variable
   // let user = await User.findOne({ email: email }); //Checking if the email is in DB
 
+  await sendMail({
+    from: '"Pratik Karanjit" <uniquekc425@gmail.com>', //This is the text that is shown in (sent by)
+    to: [data.email],
+    subject: "Email verification",
+    html: `<h1>
+  Verify Email 
+  <a href = "${link}">Click to verify</a>               
+  <h1>`,
+  });
+
     let _hashPassword = await hashPassword(data.password);
     data.password = _hashPassword;
     let result = await User.create(req.body);
@@ -30,15 +40,7 @@ export let createUser = expressAsyncHandler(async (req, res, next) => {
     let token = await generateToken(infoObj, expireInfo); //Calling the generate token function
     await Token.create({ token });
     let link = `https://loginmanagement.netlify.app/verify-email?token=${token}`; //Giving link and sending it to email for email verification
-    await sendMail({
-      from: '"Pratik Karanjit" <uniquekc425@gmail.com>', //This is the text that is shown in (sent by)
-      to: [data.email],
-      subject: "Email verification",
-      html: `<h1>
-    Verify Email 
-    <a href = "${link}">Click to verify</a>               
-    <h1>`,
-    });
+  
 
     successResponse(
       res,
