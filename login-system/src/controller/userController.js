@@ -13,13 +13,14 @@ export let createUser = expressAsyncHandler(async (req, res, next) => {
   data.isVerify = false; //we set isVerify and isDeactivate to false in code itself and not let the user decide
   data.isDeactivate = false;
   let email = data.email; //getting email and storing in variable
-  let user = await User.findOne({ email: email }); //Checking if the email is in DB
+  // let user = await User.findOne({ email: email }); //Checking if the email is in DB
 
   if (user) {
+    console.log("hello")
     //If it is then show duplicate email error
-    let error = new Error("Duplicate email.");
-    error.statusCode = 409;
-    throw error;
+    // let error = new Error("Duplicate email.");
+    // error.statusCode = 409;
+    // throw error;
   } else {
     //else hash the password and create User
     let _hashPassword = await hashPassword(data.password);
