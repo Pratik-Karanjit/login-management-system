@@ -15,14 +15,6 @@ export let createUser = expressAsyncHandler(async (req, res, next) => {
   let email = data.email; //getting email and storing in variable
   // let user = await User.findOne({ email: email }); //Checking if the email is in DB
 
-  if (data) {
-    console.log("hello")
-    //If it is then show duplicate email error
-    // let error = new Error("Duplicate email.");
-    // error.statusCode = 409;
-    // throw error;
-  } else {
-    //else hash the password and create User
     let _hashPassword = await hashPassword(data.password);
     data.password = _hashPassword;
     let result = await User.create(req.body);
@@ -54,7 +46,6 @@ export let createUser = expressAsyncHandler(async (req, res, next) => {
       "User created successfully",
       result
     );
-  }
 });
 
 //localhost:8000/users/verify-email?token=1234234
