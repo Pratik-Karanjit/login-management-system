@@ -21,7 +21,6 @@ export let createUser = expressAsyncHandler(async (req, res, next) => {
     subject: "Email verification",
     html: `<h1>
   Verify Email 
-  <a href = "${link}">Click to verify</a>               
   <h1>`,
   });
 
